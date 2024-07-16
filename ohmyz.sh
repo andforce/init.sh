@@ -10,8 +10,13 @@ install_git() {
     fi
 
     echo "配置 git"
-    git config --global user.name "diyuan"
-    git config --global user.email "86118@163.com"
+    # 等待用户输入用户名和邮箱
+    echo "请输入用户名，git config --global user.name"
+    read -r username
+    echo "请输入邮箱，git config --global user.email"
+    read -r email
+    git config --global user.name "$username"
+    git config --global user.email "$email"
     git config --global core.editor vim
     git config --global alias.st status
     git config --global alias.co checkout
@@ -53,28 +58,13 @@ install_zsh() {
         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
-    # 检查 ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 是否存在
-    if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
-        echo "zsh-syntax-highlighting 已安装"
-    else
-        echo "下载安装 zsh-syntax-highlighting 插件"
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    fi
 
-    if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
-        echo "zsh-autosuggestions 已安装"
-    else
-        echo "下载安装 zsh-autosuggestions 插件"
-        git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    fi
-
-    sed -i 's@plugins=(.*)@plugins=(git extract zsh-syntax-highlighting zsh-autosuggestions)@g' ~/.zshrc
-
-    #    {
-    #        echo 'alias cat="/usr/bin/bat"'
-    #        echo 'alias myip="curl ifconfig.io/ip"'
-    #        echo 'alias c=clear'
-    #    } >>~/.zshrc
+    # https://www.cnblogs.com/highriver/archive/2011/10/30/2229503.html
+    # 设置输入法可以输入中文，当前环境是英文
+    {
+        echo 'export LC_CTYPE=zh_CN.UTF-8'
+        echo 'export LANG=en_US.UTF-8'
+    } >>~/.zshrc
 }
 
 install_zsh
