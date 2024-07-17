@@ -22,6 +22,7 @@ install_git() {
     git config --global alias.co checkout
     git config --global alias.ci commit
     git config --global alias.br branch
+    git config --global pager.branch false
 }
 
 install_zsh() {
