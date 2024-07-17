@@ -29,6 +29,8 @@ system_config() {
     sudo apt-get install -y vim
     sudo apt-get install -y unzip
     sudo apt-get install -y git-core gnupg flex bison build-essential zip curl zlib1g-dev libc6-dev-i386 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
+    # 编译aosp需要的依赖
+    sudo apt-get install libncurses5
     # 安装NFS相关的
     sudo apt-get install -y rpcbind
     sudo apt-get install -y nfs-server
