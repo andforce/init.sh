@@ -10,13 +10,13 @@ system_config() {
     sudo systemctl start rpcbind nfs-server
 
     # 创建 $HOME/nfs，如果不存在就创建
-    if [ ! -d "$HOME/nfs" ]; then
-        mkdir -p "$HOME/nfs"
-    fi
+#    if [ ! -d "$HOME/nfs" ]; then
+#        mkdir -p "$HOME/nfs"
+#    fi
 
     # 把当前用户加入到nfs共享目录 sudo vi /etc/exports
     # 要写入的内容
-    export_entry="$HOME/nfs   *(rw,async,insecure,no_subtree_check,all_squash,anonuid=0,anongid=0)"
+    export_entry="$HOME   *(rw,async,insecure,no_subtree_check,all_squash,anonuid=0,anongid=0)"
 
     # 检查 /etc/exports 文件中是否已经包含了这个条目
     if ! grep -Fxq "$export_entry" /etc/exports; then
@@ -25,8 +25,9 @@ system_config() {
     else
         echo "条目已存在，无需追加。"
     fi
-    # ssh
-    sudo apt-get install -y openssh-server
+
+    echo "重启系统生效"
+
 
 }
 
