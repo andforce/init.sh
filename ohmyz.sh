@@ -11,9 +11,9 @@ install_git() {
 
     echo "配置 git"
     # 等待用户输入用户名和邮箱
-    echo "请输入用户名，git config --global user.name"
+    echo -n "请输入用户名，git config --global user.name"
     read -r username
-    echo "请输入邮箱，git config --global user.email"
+    echo -n "请输入邮箱，git config --global user.email"
     read -r email
     git config --global user.name "$username"
     git config --global user.email "$email"
