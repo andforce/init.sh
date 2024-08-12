@@ -1,9 +1,10 @@
 # init.sh
 
 ```shell
-curl -sSL https://raw.githubusercontent.com/andforce/init.sh/main/pi2w.sh | sh
+curl -O https://raw.githubusercontent.com/andforce/init.sh/main/git.sh && sh git.sh && rm git.sh
 ```
 
+
 ```shell
-curl -O https://raw.githubusercontent.com/andforce/init.sh/main/pi2w.sh && sh pi2w.sh && rm pi2w.sh
+curl -sSL https://raw.githubusercontent.com/andforce/init.sh/main/pi2w.sh | sh
 ```
