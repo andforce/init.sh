@@ -23,6 +23,9 @@ install_git() {
     git config --global alias.ci commit
     git config --global alias.br branch
     git config --global pager.branch false
+    git config --global i18n.commitencoding utf-8
+    git config --global i18n.logoutputencoding utf-8
+    export LESSCHARSET=utf-8
 }
 
 install_git
