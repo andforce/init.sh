@@ -10,6 +10,11 @@ java_config() {
     # sdk install java 11.0.11.hs-adpt  # 安装特定版本的JDK
     # sdk use java 11.0.11.hs-adpt  # 切换到特定版本的JDK
     # sdk install java 11.0.14.1-jbr
+    echo "安装特定版本的JDK:"
+    echo "sdk list java"
+    echo "sdk install java 11.0.11.hs-adpt"
+    echo "sdk use java 11.0.11.hs-adpt"
+
 }
 
 java_config
