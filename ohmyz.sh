@@ -1,5 +1,10 @@
 #!/usr/bin/sh
 
+# 强制交互式模式
+if [ -z "$PS1" ]; then
+    export PS1="ssh-remote$ "
+fi
+
 install_git() {
   # 检查是否安装了 git
     if [ -z "$(command -v git)" ]; then
